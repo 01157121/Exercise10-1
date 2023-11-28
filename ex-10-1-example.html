@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+    Reference: 
+    https://codepen.io/knaman2609/pen/Zbyjvv
+    https://pixabay.com/illustrations/donald-trump-america-president-5103361/ 
+-->
+
+<head>
+    <meta charset="utf-8">
+    <title>My Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            min-height: 100%;
+            background: #eee;
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            color: #222;
+            font-size: 14px;
+            line-height: 26px;
+            padding-bottom: 50px;
+        }
+
+        .container {
+            max-width: 700px;
+            background: #fff;
+            margin: 0px auto 0px;
+            box-shadow: 1px 1px 2px #DAD7D7;
+            border-radius: 3px;
+            padding: 40px;
+            margin-top: 50px;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .full-name {
+            font-size: 40px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .first-name {
+            font-weight: 700;
+        }
+
+        .last-name {
+            font-weight: 300;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .email,
+        .phone {
+            color: #999;
+            font-weight: 300;
+        }
+
+        .separator {
+            height: 10px;
+            display: inline-block;
+            border-left: 2px solid #999;
+            margin: 0px 10px;
+        }
+
+        .position {
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 10px;
+            text-decoration: underline;
+        }
+
+        .details {
+            line-height: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section:last-of-type {
+            margin-bottom: 0px;
+        }
+
+        .section__title {
+            letter-spacing: 2px;
+            color: #54AFE4;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .section__list-item {
+            margin-bottom: 40px;
+        }
+
+        .section__list-item:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .left,
+        .right {
+            vertical-align: top;
+            display: inline-block;
+        }
+
+        .left {
+            width: 60%;
+        }
+
+        .right {
+            text-align: right;
+            width: 39%;
+        }
+
+        .name {
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+            font-style: italic;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+
+        .skills__item {
+            margin-bottom: 10px;
+        }
+
+        input {
+            display: none;
+        }
+
+        label {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #C3DEF3;
+            border-radius: 20px;
+            margin-right: 3px;
+        }
+
+        input:checked+label {
+            background: #79A9CE;
+        }
+    </style>
+</head>
+
+<body>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+
+    <div class="container">
+        <div class="header">
+            <div class="full-name">
+                <span class="first-name">Terry </span>
+                <span class="last-name">Gou</span>
+            </div>
+            <div class="contact-info">
+                <span class="email">Email: </span>
+                <span class="email-val">mydad@gmail.com</span>
+                <span class="separator"></span>
+                <span class="phone">Phone: </span>
+                <span class="phone-val">0901038031</span>
+            </div>
+
+            <div>
+                <img src="data:image/jpeg;base64,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" width="60%">
+            </div>
+
+            <div class="about">
+                <span class="position">Front-End Developer </span>
+                <span class="desc">
+                    台灣人民希望改變，改變帶給人民希望🇹🇼
+主流民意大聯盟，將全力提出最好的國家政策
+將畢生才能，奉獻給最摯愛的中華民國，鞠躬盡瘁，死而後已！
+                </span>
+            </div>
+        </div>
+        <div class="details">
+            <div class="section">
+                <div class="section__title">Experience</div>
+                <div class="section__list">
+                    <div class="section__list-item">
+                        <div class="left">
+                            <div class="name">KlowdBox</div>
+                            <div class="addr">San Fr, CA</div>
+                            <div class="duration">Jan 2011 - Feb 2015</div>
+                        </div>
+                        <div class="right">
+                            <div class="name">Fr developer</div>
+                            <div class="desc">did This and that</div>
+                        </div>
+                    </div>
+                    <div class="section__list-item">
+                        <div class="left">
+                            <div class="name">Akount</div>
+                            <div class="addr">San Monica, CA</div>
+                            <div class="duration">Jan 2011 - Feb 2015</div>
+                        </div>
+                        <div class="right">
+                            <div class="name">Fr developer</div>
+                            <div class="desc">did This and that</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="section">
+                <div class="section__title">Education</div>
+                <div class="section__list">
+                    <div class="section__list-item">
+                        <div class="left">
+                            <div class="name">Sample Institute of technology</div>
+                            <div class="addr">San Fr, CA</div>
+                            <div class="duration">Jan 2011 - Feb 2015</div>
+                        </div>
+                        <div class="right">
+                            <div class="name">Fr developer</div>
+                            <div class="desc">did This and that</div>
+                        </div>
+                    </div>
+                    <div class="section__list-item">
+                        <div class="left">
+                            <div class="name">Akount</div>
+                            <div class="addr">San Monica, CA</div>
+                            <div class="duration">Jan 2011 - Feb 2015</div>
+                        </div>
+                        <div class="right">
+                            <div class="name">Fr developer</div>
+                            <div class="desc">did This and that</div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="section">
+                <div class="section__title">Projects</div>
+                <div class="section__list">
+                    <div class="section__list-item">
+                        <div class="name">DSP</div>
+                        <div class="text">I am a front-end developer with more than 3 years of experience writing html,
+                            css, and js. I'm motivated, result-focused and seeking a successful team-oriented company
+                            with opportunity to grow.</div>
+                    </div>
+
+                    <div class="section__list-item">
+                        <div class="name">DSP</div>
+                        <div class="text">I am a front-end developer with more than 3 years of experience writing html,
+                            css, and js. I'm motivated, result-focused and seeking a successful team-oriented company
+                            with opportunity to grow. <a href="/login">link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="section__title">Skills</div>
+                <div class="skills">
+                    <div class="skills__item">
+                        <div class="left">
+                            <div class="name">
+                                Javascript
+                            </div>
+                        </div>
+                        <div class="right">
+                            <input id="ck1" type="checkbox" checked />
+
+                            <label for="ck1"></label>
+                            <input id="ck2" type="checkbox" checked />
+
+                            <label for="ck2"></label>
+                            <input id="ck3" type="checkbox" />
+
+                            <label for="ck3"></label>
+                            <input id="ck4" type="checkbox" />
+                            <label for="ck4"></label>
+                            <input id="ck5" type="checkbox" />
+                            <label for="ck5"></label>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="skills__item">
+                    <div class="left">
+                        <div class="name">
+                            CSS</div>
+                    </div>
+                    <div class="right">
+                        <input id="ck1" type="checkbox" checked />
+
+                        <label for="ck1"></label>
+                        <input id="ck2" type="checkbox" checked />
+
+                        <label for="ck2"></label>
+                        <input id="ck3" type="checkbox" />
+
+                        <label for="ck3"></label>
+                        <input id="ck4" type="checkbox" />
+                        <label for="ck4"></label>
+                        <input id="ck5" type="checkbox" />
+                        <label for="ck5"></label>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="section">
+                <div class="section__title">
+                    Interests
+                </div>
+                <div class="section__list">
+                    <div class="section__list-item">
+                        Football, programming.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
